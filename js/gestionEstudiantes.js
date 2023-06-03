@@ -1,6 +1,7 @@
 let estudianteModific = () => {}; 
 let estudianteElimin = () => {};
-let estudianteMostr = () => {};    
+let estudianteMostr = () => {};   
+let irActividades = () => {};  
 
 $(document).ready(function(){ 
     let codEstudianteModific = 1; 
@@ -26,6 +27,9 @@ $(document).ready(function(){
             html += '   <td>';
             html += '       <button onclick="estudianteElimin(' + Estudiante.codigo + ')" >ELIMINAR</button>';
             html += '   </td>';
+            html += '   <td>';
+            html += '      <button onclick="irActividades(' + Estudiante.codigo + ')" >NOTAS</button>';; 
+            html += '   </td>';
             html += '<tr>';
         });
         tbody.innerHTML = html;
@@ -34,6 +38,11 @@ $(document).ready(function(){
         console.error(error);
     })
  }
+
+  irActividades = function(Estudiantecodigo) {
+    localStorage.setItem('codigoEstudiante', Estudiantecodigo);
+    window.location.href = 'actividades.html';
+ };
 
     estudianteMostr();
 
